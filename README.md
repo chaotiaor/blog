@@ -1,2 +1,2 @@
-# chaortiang.github.io
+# blog
 my blog
