@@ -16,5 +16,5 @@
 5.[超像素](./SR/one.md)
 
 
-6.[pytorch 分析](./pytorch/one.md)
+6.[pytorch框架分析](./pytorch/one.md)
 
