@@ -137,10 +137,7 @@ if __name__ == '__main__':
     """
     
     """
-    import torch
-    import cv2
-    import numpy as np
-    from lib.core.portraitnet.api import MobileNetV2
+
     
 
 
