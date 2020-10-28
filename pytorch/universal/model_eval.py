@@ -52,8 +52,8 @@ def main(model_path, save_path, target_label=0):
 if __name__ == '__main__':
     import os
     import time
-    path = 'checkpoints/experiment_name_sf'
-    target_path = './log/10-21/sf'
+    path = ''
+    target_path = ''
     target_label = 1
     if not os.path.exists(target_path):
         os.makedirs(target_path)
