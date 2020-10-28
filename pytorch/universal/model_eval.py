@@ -42,8 +42,6 @@ def main(model_path, save_path, target_label=0):
 
   
     np.savez(save_path,
-             # recall=np.array(recall_p),
-             # accuracy=np.array(accuracy_t),
              p_save=np.array(p_save),
              label=np.array(label_data),
              mask_paths=np.array(mask_paths),
