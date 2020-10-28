@@ -9,7 +9,7 @@ opts = TrainOptions().parse()
 model = create_net(opts)
 torch.save(model.cpu().state_dict(), 'model.pth')
 
-model_path = 'best_dice_loss_miou_0.655.pth'
+model_path = ''
 model_dict = torch.load(model_path, map_location=torch.device('cpu'))
 
 new_model_path = 'model.pth'
