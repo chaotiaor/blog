@@ -14,6 +14,7 @@ class BiSeModel(Base):
         self.label = inputs['mask'].to(self.device)
 
     def optimize_parameters(self):
+        """ 这里设置loss函数和更新模型权重"""
         output, output_sup1, output_sup2 = self.netG(self.input)
         output_ori, output_sup1_ori, output_sup2_ori = self.netG(self.input_ori)
         loss1 = self.loss_function(output, self.label)
