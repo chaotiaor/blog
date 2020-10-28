@@ -141,48 +141,7 @@ if __name__ == '__main__':
     import cv2
     import numpy as np
     from lib.core.portraitnet.api import MobileNetV2
-    # for i in range(299, 400):
-    #     if i % 32 == 0:
-    #         print(i)
-    # print()
-    # for i in range(199, 300):
-    #     if i % 32 == 0:
-    #         print(i)
-    # w = 352
-    # h = 256
-    # classes = 3
-    #
-    # model = MobileNetV2(classes)
-    # img = torch.rand((1, 3, h, w))
-    # mask_copy = np.zeros((1, classes, h, w))
-    #
-    # mask = cv2.imread('C:\\Users\\mwrd\\Desktop\\old\\eyelid_gland_data\\9-28_masks\\00000000.png', 0)
-    # mask = cv2.resize(mask, (w, h), interpolation=cv2.INTER_NEAREST)
-    # mask = np.array(mask)
-    # mask = np.expand_dims(mask, 0)
-    # mask = torch.from_numpy(mask).long()
-    # focal = FocalLoss(1, [0.2, 0.5, 0.3])
-    # out = model(img)
-    # print(out.shape)
-    # # loss_ = nn.CrossEntropyLoss()
-    # # a = loss_(out, mask)
-    # # print(a)
-    #
-    # # loss_ = nn.BCEWithLogitsLoss()
-    # loss_ = DiceLoss()
-    # # mask_copy[:, 0, mask == 0] = 1
-    # # mask_copy[:, 1, mask == 1] = 1
-    # # mask_copy[:, 2, mask == 2] = 1
-    #
-    # label = nn.functional.one_hot(mask, 3)
-    # label = label.permute(2, 0, 1)
-    # label = label.unsqueeze(0).float()
-    #
-    # # mask_copy = torch.from_numpy(mask_copy).float()
-    # # print(torch.sum(mask_copy - label))
-    # a = loss_(out, label)
-    # print(a)
-
+    
 
 
 
