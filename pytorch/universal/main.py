@@ -1,3 +1,7 @@
+"""
+这是训练代码的主程序，只保留主要的几步，其余的需要的化就自己添加
+"""
+
 import time
 from lib.data.loader import DataLoader
 from lib.core import create_net
@@ -23,13 +27,12 @@ def main():
     model.setup(opt_train)
     visualizer = Visualizer(opt_train)
     total_iters = 0
-    save_iou_data = -1
 
     for epoch in range(opt_train.epoch_count, opt_train.n_epochs + opt_train.n_epochs_decay):
         epoch_start_time = time.time()  # timer for entire epoch
         iter_data_time = time.time()  # timer for data loading per iteration
-        epoch_iter = 0  # the number of training iterations in current epoch, reset to 0 every epoch
-        loss_sum = {'train_loss': [], 'test_loss': [], 'm_iou': []}
+        epoch_iter = 0 
+        loss_sum = {'train_loss': [], 'test_loss': []}
         visualizer.reset()
 
         model.train()
@@ -54,22 +57,17 @@ def main():
             model.step_verify()
             losses = model.get_current_losses()
             loss_sum['test_loss'].append(losses)
-            loss_sum['m_iou'].append(model.m_iou())
+            
 
         model.update_learning_rate()  # update learning rates in the beginning of every epoch.
         losses = {'train_loss': np.mean(np.array(loss_sum['train_loss'])),
                   'test_loss': np.mean(np.array(loss_sum['test_loss'])),
-                  'm_iou': np.mean(np.array(loss_sum['m_iou']))
                   }
         visualizer.plot_current_losses(epoch, float(epoch_iter) / data_set_size, losses)
 
         if epoch % opt_train.save_epoch_freq == 0:  # cache our model every <save_epoch_freq> epochs
             print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))
             model.save_networks('latest')
-
-        if save_iou_data < losses['m_iou']:
-            model.save_networks('test_iou_max')
-            save_iou_data = losses['m_iou']
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt_train.n_epochs + opt_train.n_epochs_decay,
                                                               time.time() - epoch_start_time)
