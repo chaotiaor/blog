@@ -14,7 +14,7 @@ class BaseOptions:
         """Define the common options that are used in both training and test."""
         # basic parameters
         parser.add_argument('--dataroot', type=str,
-                            default='C:\\Users\\mwrd\\Desktop\\old\\eyelid_gland_data\\data')
+                            default='')
         parser.add_argument('--trainer_name', type=str, default='portrait',
                             help='portrait|bise')
         parser.add_argument('--net_name', type=str, default='portraitnet',
