@@ -2,7 +2,7 @@ import importlib
 
 
 def find_model_using_name(model_name):
-    """Import the module "lib/trainer/[model_name]/api.py".
+    """Import the module "lib/core/[model_name]/api.py".
     In the file, the class called DatasetNameModel() will
     be instantiated. It has to be a subclass of BaseModel,
     and it is case-insensitive.
