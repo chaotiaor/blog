@@ -77,7 +77,7 @@ def random_resize(src, mask, h, w):
         target_img = b_src[y_0:y_1, x_0:x_1, :]
         target_mask = cv2.resize(target_mask, (w, h), interpolation=cv2.INTER_NEAREST)
         target_img = cv2.resize(target_img, (w, h))
-    except cv2.error:
+    except Exception:
         return src, mask
     else:
         return target_img, target_mask
