@@ -139,19 +139,6 @@ class Base(ABC):
             print('[Network %s] Total number of parameters : %.3f M' % (self.name, num_params / 1e6))
         print('-----------------------------------------------')
 
-    def m_iou(self):
-        if self.loss_type == 'sigmoid' or self.loss_type == 'dice':
-            labels = self.label.permute(0, 2, 3, 1)
-            labels = torch.argmax(labels, dim=-1)
-        else:
-            labels = self.label
-        labels = np.array(labels.cpu())
-        masks = self.output.permute(0, 2, 3, 1)
-        masks = torch.argmax(masks, dim=-1)
-        masks = np.array(masks.cpu())
-        h = fast_hist(labels, masks, self.n_class)
-        iou = per_class_iu(h)
-        return np.mean(iou[1:])
 
 
 
