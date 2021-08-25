@@ -80,12 +80,47 @@ c, Style mixing
 
 ![image](https://user-images.githubusercontent.com/37278270/130759040-a1b70689-6f30-4591-bd14-1e31d895dbeb.png)
 
+d, Stochastic variation
+===
+论文中的 Stochastic variation 是为了让生成的人脸的细节部分更随机、更自然，细节部分主要指头发丝、皱纹、皮肤毛孔、胡子茬等。如下图。
+
+![image](https://user-images.githubusercontent.com/37278270/130760316-fa39a89e-983c-46b8-a154-261ce71e34dd.png)
+
+实现这种 Stochastic variation 的方法就是引入噪声，StyleGAN的做法是在每一次卷积操作后都加入噪声，下图是不同网络层加入噪声的对比。
+
+![image](https://user-images.githubusercontent.com/37278270/130760532-96c6d1f9-9330-4d7a-b614-cff439c9cea2.png)
+
+e, Perceptual path length
+===
+图像生成其实是学习从一个分布到目标分布的迁移过程，如下图，已知input latent code 是z1，或者说白色的狗所表示的latent code是z1，目标图像是黑色的狗，黑狗图像的latent code 是 z2，图中蓝色的虚线是z1 到 z2 最快的路径，绿色的曲线是我们不希望的路径，在蓝色的路径中的中间图像应该是z1 和 z2 的组合，假设这种组合是线性的（当特征充分解耦的时候），蓝色路径上生成的中间图像也是狗（ 符合 latent-space interpolation），但是绿色的曲线由于偏离路径太多，生成的中间图像可能是其他的，比如图上的卧室，这是我们不希望的结果。
+
+补充一下，我们可以通过训练好的生成模型得到给定图像的latent code，假设我们有一个在某个数据集上训练好的styleGAN模型，现在要找到一张图像 x 在这个模型中的latent code，设初始latent code 是 z，生成的初始图像是p，通过 p 和 x 之间的差距 设置损失函数，通过损失不断去迭代 z，最后得到图像x的latent code。
+
+![image](https://user-images.githubusercontent.com/37278270/130760734-f9721efd-c925-4e67-ab0c-a7c9b362177d.png)
+
+Perceptual path length 是一个指标，用于判断生成器是否选择了最近的路线（比如上图蓝色虚线），用训练过程中相邻时间节点上的两个生成图像的距离来表示，公式如下：
+
+![image](https://user-images.githubusercontent.com/37278270/130761404-240065cb-2019-4e27-b643-edd0501b45eb.png)
 
 
+g 表示生成器，d 表示判别器， f 表示mapping netwrok， 
 
+f(z1)表示由latent code z1 得到的中间隐藏码 w ， t 表示某一个时间点， t属于[0, 1] , t+小量 表示下一个时间点，lerp 表示线性插值 （linear interpolation），即在 latent space上进行插值。
 
+![image](https://user-images.githubusercontent.com/37278270/130761403-7fc3cd5a-1c81-413e-88d8-60d67e56d2b8.png)
 
+g, Truncation Trick
+===
 
+Truncation Trick 不是StyleGAN提出来的，它很早就在GAN里用于图像生成了，感兴趣的可以追踪溯源。从数据分布来说，低概率密度的数据在网络中的表达能力很弱，直观理解就是，低概率密度的数据出现次数少，能影响网络梯度的机会也少，但并不代表低概率密度的数据不重要。可以提高数据分布的整体密度，把分布稀疏的数据点都聚拢到一起，类似于PCA，做法很简单，首先找到数据中的一个平均点，然后计算其他所有点到这个平均点的距离，对每个距离按照统一标准进行压缩，这样就能将数据点都聚拢了，但是又不会改变点与点之间的距离关系。
+
+公式如下：
+
+![image](https://user-images.githubusercontent.com/37278270/130762175-def2c2c0-45e0-4200-83c4-163c63cc7489.png)
+
+![](http://latex.codecogs.com/gif.latex?\\psi)是一个实数，表示压缩倍数，下图是truncation对style的影响。
+
+![image](https://user-images.githubusercontent.com/37278270/130763390-646229c7-3b19-458a-b24c-8e13aab82148.png)
 
 
 
