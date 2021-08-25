@@ -7,7 +7,7 @@ stylegan记录
 
 3，loss设计
 
-4，使用体验
+4，评价
 
 
 原理
@@ -25,14 +25,13 @@ StyleGAN 用风格（style）来影响人脸的姿态、身份特征等，用噪
 ===
 1，生成器
 
-网络结构包含两个部分，第一个是Mapping network，即下图 (b)中的左部分，由隐藏变量 z 生成 中间隐藏变量 w的过程，这个 w 就是用来控制生成图像的style，即风格，
-为什么要多此一举将 z 变成 w 呢，后面会详细讲到。 
+网络结构包含两个部分，第一个是Mapping network，即下图 (b)中的左部分，由隐藏变量 z 生成 中间隐藏变量 w的过程，这个 w 就是用来控制生成图像的style，即风格。
 
 第二个是Synthesis network，它的作用是生成图像，创新之处在于给每一层子网络都喂了 A 和 B，A 是由 w 转换得到的仿射变换，
 用于控制生成图像的风格，B 是转换后的随机噪声，用于丰富生成图像的细节，即每个卷积层都能根据输入的A来调整"style"。整个网络结构还是保持了 PG-GAN （progressive growing GAN） 的结构。
 
 此外，传统的GAN网络输入是一个随机变量或者隐藏变量 z，但是StyleGAN 将 z 单独用 mapping网络将z变换成w，
-再将w投喂给 Synthesis network的每一层，因此Synthesis network中最开始的输入变成了常数张量，见下图b中的Const 4x4x512。
+再将w投喂给 Synthesis network的每一层，因此Synthesis network中最开始的输入变成了常数张量
 
 ![image](https://user-images.githubusercontent.com/37278270/130754103-6df91d5b-6271-4eb0-a4c5-c652a2a12069.png)
 
