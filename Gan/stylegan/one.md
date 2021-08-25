@@ -109,7 +109,7 @@ Perceptual path length 是一个指标，用于判断生成器是否选择了最
 
 ![image](https://user-images.githubusercontent.com/37278270/130761404-240065cb-2019-4e27-b643-edd0501b45eb.png)
 
-g 表示生成器，d 表示判别器， f 表示mapping netwrok， 
+g 表示生成器，d表示d(·, ·) evaluates the perceptual distance between the resulting images， f 表示mapping netwrok， 
 
 f(z1)表示由latent code z1 得到的中间隐藏码 w ， t 表示某一个时间点， t属于[0, 1] , t+小量 表示下一个时间点，lerp 表示线性插值 （linear interpolation），即在 latent space上进行插值。
 
