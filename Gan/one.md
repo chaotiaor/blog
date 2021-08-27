@@ -34,6 +34,8 @@ D的目的：D的能力越强，D(x)应该越大，D(G(x))应该越小。这时V
 
 3，[stylegan](./stylegan/one.md)
 
+4, [stylegan2](./stylegan/two.md)
+
 
 
 
