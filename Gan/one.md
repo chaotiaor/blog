@@ -28,11 +28,11 @@ D的目的：D的能力越强，D(x)应该越大，D(G(x))应该越小。这时V
 
 研究和使用过的gan网络
 ====
-1，[pix2pix](./pix/one.md)
+1, [pix2pix](./pix/one.md)
 
-2，[pix2pixHD](./pix/two.md)
+2, [pix2pixHD](./pix/two.md)
 
-3，[stylegan](./stylegan/one.md)
+3, [stylegan](./stylegan/one.md)
 
 4, [stylegan2](./stylegan/two.md)
 
