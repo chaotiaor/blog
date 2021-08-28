@@ -35,6 +35,11 @@ ROI pooling具体操作如下：
 根据输入image，将ROI映射到feature map对应位置；
 将映射后的区域划分为相同大小的sections（sections数量与输出的维度相同）；
 对每个sections进行max pooling操作；
+比如某个ROI区域坐标为（x1, y1, x2, y2），那么输入size为 (y2 - y1) * (x2 - x1)，
+如果pooling的输出size为 poolheight *  poolwidth，那么每个网格的size为
+
+![image](https://user-images.githubusercontent.com/37278270/131209961-01286895-17f6-4664-9201-ee08353f9a44.png)
+
 这样我们就可以从不同大小的方框得到固定大小的相应 的feature maps。值得一提的是，输出的feature maps的大小不取决于ROI和卷积feature maps大小。ROI pooling 最大的好处就在于极大地提高了处理速度。
 
 
@@ -51,7 +56,8 @@ ROI pooling具体操作如下：
 ![image](https://user-images.githubusercontent.com/37278270/131202729-2534be83-2216-4775-8a01-6fb3ae0ad8c3.png)
 
 3, 将其划分为（2x2）个sections（因为输出大小为2*2），
-那每个网格大小为 （5 / 2 - 1, 7 / 2 - 1）, （5 / 2 - 1, 7 / 2 + 1）, （5 / 2 + 1, 7 / 2 - 1), （5 / 2 + 1, 7 / 2 + 1）
+那每个网格大小为 （5 / 2 , 7 / 2）, （5 / 2, 7 / 2 + 1), （5 / 2 + 1, 7 / 2）, （5 / 2 + 1, 7 / 2 + 1）
+其中 5/2 表示向下取整
 
 我们可以得到
 
@@ -66,7 +72,7 @@ ROI pooling具体操作如下：
 
 https://blog.csdn.net/u011436429/article/details/80279536
 
-
+https://zhuanlan.zhihu.com/p/24780395
 
 
 
