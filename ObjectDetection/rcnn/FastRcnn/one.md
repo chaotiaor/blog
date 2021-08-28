@@ -22,10 +22,28 @@
 
 # loss
 
+如下图：
+
+![image](https://user-images.githubusercontent.com/37278270/131210418-37864468-0ed9-4e30-91e5-85b070e8d5b3.png)
+
+cls_score层用于分类，输出K+1维数组p，表示属于K类和背景的概率。
+bbox_prdict层用于调整候选区域位置，输出4 * K维数组t，表示分别属于K类时，应该平移缩放的参数。
+
+其他见
+
+https://blog.csdn.net/shenxiaolu1984/article/details/51036677
+
+代价函数部分
 
 
 
+# 参考
 
+https://zhuanlan.zhihu.com/p/24780395
+
+https://blog.csdn.net/shenxiaolu1984/article/details/51036677
+
+Girshick, Ross. “Fast r-cnn.” Proceedings of the IEEE International Conference on Computer Vision. 2015.
 
 
 
