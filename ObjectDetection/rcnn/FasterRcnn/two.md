@@ -35,23 +35,26 @@ anchors是在每一个特征图上的格点中随机生成的矩形框，论文�
 ![image](https://user-images.githubusercontent.com/37278270/131211591-d2f33648-2ad3-4090-9249-ec88d6131cd3.png)
 
 
+
 3， bbox reg回归positive anchors
 
 参考https://www.cnblogs.com/bile/p/9117253.html
 
 中3.6.4和3.6.5部分
 
+
+
 4， Proposal Layer生成proposals
 
 Proposal Layer有3个输入：
-positive vs negative anchors分类器结果rpn_cls_prob_reshape
 
-im_info
+1， positive vs negative anchors分类器结果rpn_cls_prob_reshape
 
-另外还有参数feature_stride=16，这和图4是对应的。
+2， im_info
 
-im_info。对于一副任意大小PxQ图像，传入Faster RCNN前首先reshape到固定MxN，im_info=[M, N, scale_factor]则保存了此次缩放的所有信息。
+3， 另外还有参数feature_stride=16，这和图4是对应的。
 
+im_info，对于一副任意大小PxQ图像，传入Faster RCNN前首先reshape到固定MxN，im_info=[M, N, scale_factor]则保存了此次缩放的所有信息。
 然后经过Conv Layers，经过4次pooling变为WxH=(M/16)x(N/16)大小，其中feature_stride=16则保存了该信息，用于计算anchor偏移量。
 如下图：
 
