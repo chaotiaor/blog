@@ -50,7 +50,10 @@ ROI pooling具体操作如下：
 
 ![image](https://user-images.githubusercontent.com/37278270/131202729-2534be83-2216-4775-8a01-6fb3ae0ad8c3.png)
 
-3, 将其划分为（2x2）个sections（因为输出大小为2*2），我们可以得到
+3, 将其划分为（2x2）个sections（因为输出大小为2*2），
+那每个网格大小为 （5 / 2 - 1, 7 / 2 - 1）, （5 / 2 - 1, 7 / 2 + 1）, （5 / 2 + 1, 7 / 2 - 1), （5 / 2 + 1, 7 / 2 + 1）
+
+我们可以得到
 
 ![image](https://user-images.githubusercontent.com/37278270/131202740-56b8805e-a0f2-4c89-b701-41e16db69f4e.png)
 
