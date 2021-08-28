@@ -2,19 +2,23 @@
 
 1, 原理
 
-2, 应用
+2, loss
 
-3, 点评
 
 # 原理
 
+如下图：
+
+![image](https://user-images.githubusercontent.com/37278270/131210888-584660f2-5b87-44df-b775-1fbb4ad6f991.png)
 
 
 
 
-# 参考文件
-1, https://www.cnblogs.com/bile/p/9117253.html
 
+# 参考
+https://www.cnblogs.com/bile/p/9117253.html
+
+https://zhuanlan.zhihu.com/p/31426458
 
 
 
