@@ -13,7 +13,7 @@
 
 1，[RPN](./two.md)
 
-2, [POI](blog/ObjectDetection/rcnn/FastRcnn/two.md)
+2，[POI](./ObjectDetection/rcnn/FastRcnn/two.md)
 
 
 
