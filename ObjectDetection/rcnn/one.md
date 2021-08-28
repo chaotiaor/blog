@@ -6,7 +6,7 @@
 
 [Faster Rcnn](./FasterRcnn/one.md)
 
-[SptNet](./Spt/one.md)
+[SppNet](./SppNet/one.md)
 
 
 []()
