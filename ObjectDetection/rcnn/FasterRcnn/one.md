@@ -1,4 +1,4 @@
-# fasterRcnn记录,包括以下几个部分
+# fasterRcnn
 
 1, 原理
 
