@@ -15,6 +15,10 @@
 
 2，[POI](https://github.com/chaotiaor/blog/blob/master/ObjectDetection/rcnn/FastRcnn/two.md)
 
+# loss
+参考https://www.cnblogs.com/bile/p/9117253.html
+
+中3.6.3部分
 
 
 # 参考
