@@ -52,7 +52,7 @@ Proposal Layer有3个输入：
 
 2， im_info
 
-3， 另外还有参数feature_stride=16，这和图4是对应的。
+3， 另外还有参数feature_stride=16。
 
 im_info，对于一副任意大小PxQ图像，传入Faster RCNN前首先reshape到固定MxN，im_info=[M, N, scale_factor]则保存了此次缩放的所有信息。
 然后经过Conv Layers，经过4次pooling变为WxH=(M/16)x(N/16)大小，其中feature_stride=16则保存了该信息，用于计算anchor偏移量。
