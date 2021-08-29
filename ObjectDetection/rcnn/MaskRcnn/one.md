@@ -29,6 +29,25 @@ MaskRcnn
 
 3,  [RoIAlign](./two.md)
 
+总结如下：
+
+1， 骨干网络ResNet-FPN，用于特征提取，另外，ResNet还可以是：ResNet-50,ResNet-101,ResNeXt-50,ResNeXt-101；
+
+1， 头部网络，包括边界框识别（分类和回归）+mask预测。头部结构见下图：
+
+![image](https://user-images.githubusercontent.com/37278270/131235744-a90342c5-5480-4cd4-8f3c-10d05a18baaa.png)
+
+
+
+loss
+===
+
+![image](https://user-images.githubusercontent.com/37278270/131235856-a8ffb0e2-1982-4d6a-94be-450aeb8b0f25.png)
+
+具体参考
+https://zhuanlan.zhihu.com/p/57759536
+损失函数部分
+
 
 
 参考
