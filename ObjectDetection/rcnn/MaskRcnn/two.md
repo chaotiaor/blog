@@ -29,9 +29,9 @@ RoIAlign的输出坐标使用插值算法得到，不再量化；每个grid中�
 
 如上图所示：为了得到固定大小（7X7）的feature map，我们需要做两次量化操作：
 
-1）图像坐标 — feature map坐标，
+1）图像坐标 —> feature map坐标，
 
-2）feature map坐标 — ROI feature坐标。
+2）feature map坐标 —> ROI feature坐标。
 
 我们来说一下具体的细节，如图我们输入的是一张800x800的图像，在图像中有两个目标（猫和狗），狗的BB大小为665x665，经过VGG16网络后，我们可以获得对应的feature map，
 如果我们对卷积层进行Padding操作，我们的图片经过卷积层后保持原来的大小，但是由于池化层的存在，我们最终获得feature map 会比原图缩小一定的比例，这和Pooling层的个数和大小有关。
