@@ -17,6 +17,12 @@ MaskRcnn
 
 将RoI Pooling 层替换成了RoIAlign层；添加了并列的FCN层（mask层）。
 
+具体结构如下图:
+
+![image](https://user-images.githubusercontent.com/37278270/131235615-fe7f1f6c-c5d3-4a77-b929-8d96f104281f.png)
+
+包括以下几个部分:
+
 1, [RoIAlign](./two.md)
 
 2, [FPN]()
