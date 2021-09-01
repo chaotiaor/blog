@@ -9,7 +9,7 @@
 
 # 图像语义分割
 
-[SS](.//one.md)
+[SS](./SemanticSegmentation/one.md)
 
 
 
