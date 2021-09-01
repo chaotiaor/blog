@@ -23,6 +23,20 @@ FCN
 ![image](https://user-images.githubusercontent.com/37278270/131634769-fbdab101-9d36-4d07-be8f-8f77d7c1bc1d.png)
 
 
+[上采样](./two.md)
+
+
+参考
+===
+
+https://zhuanlan.zhihu.com/p/31428783
+
+
+
+
+
+
+
 
 
 
